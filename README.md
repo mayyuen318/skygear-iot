@@ -54,8 +54,10 @@ and enter the password `raspberry`. Replace the IP address with the one you foun
 If you wish to connect your RaspberryPi to the network via WiFi, you can do it now by following
 [this guide][pi-wifi].
 
-Before editing the Skygear credentials, you have to sign up at [Skygear Portal][skygear-portal] can get your server endpoints and the API keys in the info page in your developer portal after signing up for the [Skygear Cloud Services][skygear-portal-signup].
+### 3.1 Get the API endpoint and API Key on Skygear Portal
+Before editing the Skygear credentials, you have to sign up at [Skygear Portal][skygear-portal]. You can get your server endpoints and the API keys in the Info page in your developer portal after signing up for the [Skygear Cloud Services][skygear-portal-signup].
 
+### 3.2 Edit credentials
 Edit the Skygear credentials file `/home/pi/skygear-iot/config.json` using your favourite editor
 and fill in the required fields. The system already has `nano` and `vim` installed. You should
 end up with something that looks like this:
@@ -72,8 +74,7 @@ end up with something that looks like this:
 
 ```
 
-TODO: explain Skygear Cloud / client config here?
-
+### 3.3 View the Application log
 The system is configured to (re)start the client application upon failure every 10 seconds,
 it should start automatically after you've saved a valid configuration. You can view the
 application log using `sudo journalctl -u skygear-iot.service` or follow the log by adding
@@ -113,6 +114,7 @@ Mar 20 09:56:12 raspberrypi npm[1524]: Listening for ping events...
 
 ```
 
+### 3.4 Run npm Test
 The Skygear IoT client will first run an initial setup to generate a device ID and register
 this device on the server. After that, it will restart and try to run the user application
 normally. In this case, it will fail (because it doesn't exist) and run the built-in demo
